@@ -29,7 +29,7 @@ services:
           - node.role == manager
       replicas: 1
       labels:
-        - "traefik.frontend.rule=Host:proxy.container.se.lab.emc.com"
+        - "traefik.frontend.rule=Host:proxy.${DNS_SUFFIX}"
         - "traefik.port=8080"
         - "traefik.docker.network=traefik-net"
         - "traefik.enable=true"
@@ -44,6 +44,6 @@ configs:
 
 secrets:
   traefik_cert:
-    file: ./lab.crt
+    file: ./localhost.crt
   traefik_key:
-    file: ./lab.key
+    file: ./localhost.key
