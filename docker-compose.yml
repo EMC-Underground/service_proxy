@@ -44,6 +44,6 @@ configs:
 
 secrets:
   traefik_cert:
-    file: ./localhost.crt
+    file: ./lab.crt
   traefik_key:
-    file: ./localhost.key
+    file: ./lab.key
