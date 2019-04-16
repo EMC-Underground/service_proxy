@@ -10,7 +10,7 @@ check-network:
 
 build-network: check-network
 ifndef NETWORK_EXISTS
-^I@-docker network create --driver=overlay traefik-net
+	@-docker network create --driver=overlay traefik-net
 endif
 
 build: check-vars
