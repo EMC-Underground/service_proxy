@@ -5,8 +5,13 @@ ifndef DNS_SUFFIX
 	$(error env var DNS_SUFFIX is not set)
 endif
 
-build-network:
-	docker network create --driver=overlay traefik-net
+check-network:
+^I@docker network inspect traefik-net &> /dev/null && ([ $$? -eq 0 ] && export NETWORK_EXISTS="true") ||>
+
+build-network: check-network
+ifndef NETWORK_EXISTS
+^I@-docker network create --driver=overlay traefik-net
+endif
 
 build: check-vars
 	cat traefik.toml.tmpl | python variables_injector.py > traefik.toml
