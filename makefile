@@ -6,7 +6,7 @@ ifndef DNS_SUFFIX
 endif
 
 check-network:
-^I@docker network inspect traefik-net &> /dev/null && ([ $$? -eq 0 ] && export NETWORK_EXISTS="true") || export NETWORK_EXISTS="false"
+	@docker network inspect traefik-net &> /dev/null && ([ $$? -eq 0 ] && export NETWORK_EXISTS="true") || export NETWORK_EXISTS="false"
 
 build-network: check-network
 ifndef NETWORK_EXISTS
