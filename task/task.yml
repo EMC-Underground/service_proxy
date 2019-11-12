@@ -19,5 +19,5 @@ run:
   args:
   - -c
   - |
-    cd traefik_repo
+    cd proxy_repo
     make
