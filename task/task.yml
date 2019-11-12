@@ -1,0 +1,23 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: alpinelinux/docker-cli
+    tag: latest
+
+inputs:
+  - name: traefik_repo
+
+params:
+  DNS_SUFFIX: ((dnssuffix))
+  DOCKER_HOST: ((dockerhost))
+
+run:
+  path: sh
+  args:
+  - -c
+  - |
+    cd traefik_repo
+    make
