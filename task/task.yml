@@ -8,7 +8,7 @@ image_resource:
     tag: latest
 
 inputs:
-  - name: traefik_repo
+  - name: proxy_repo
 
 params:
   DNS_SUFFIX: ((dnssuffix))
