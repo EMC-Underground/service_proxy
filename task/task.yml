@@ -20,4 +20,5 @@ run:
   - -c
   - |
     cd proxy_repo
-    make
+    cat traefik.toml.tmpl | python variables_injector.py > traefik.toml
+    docker stack deploy -c docker-compose.yml proxy
