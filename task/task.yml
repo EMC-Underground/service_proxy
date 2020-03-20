@@ -4,7 +4,7 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: eugenmayer/docker-client
+    repository: alpinelinux/docker-cli
     tag: latest
 
 inputs:
@@ -20,8 +20,6 @@ run:
   - -c
   - |
     cd proxy_repo
-    pip install jinja2
-    cat traefik.toml.tmpl | python variables_injector.py > traefik.toml
     state="prep"
     stack="proxy"
     service="traefik"
