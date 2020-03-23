@@ -21,7 +21,7 @@ services:
       placement:
         constraints:
           - node.role == manager
-      replicas: 1
+      replicas: 3
       labels:
         - "traefik.http.services.traefik.loadbalancer.server.port=8080"
         - "traefik.http.routers.traefik.entrypoints=http"
