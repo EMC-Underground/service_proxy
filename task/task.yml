@@ -24,6 +24,7 @@ run:
     state="prep"
     stack="proxy"
     service="traefik"
+    url="http://proxy.${DNS_SUFFIX}"
     until [ $state == "complete" ]
     do
         echo "Current State=${state}"
