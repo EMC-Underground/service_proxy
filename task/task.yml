@@ -59,6 +59,15 @@ run:
                 service_state=`docker service ps ${stack}_${service} | awk 'FNR == 2 {print $6}'`
                 if [ $service_state == "Running" ]
                 then
+                    state="running"
+                fi
+                sleep 2
+                ;;
+            "running")
+                state="running"
+                http_state=`curl -o /dev/null -Ls -f -w "%{http_code}" ${url}`
+                if [ $http_state == "200" ]
+                then
                     state="complete"
                 fi
                 sleep 2
