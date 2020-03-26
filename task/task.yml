@@ -19,6 +19,7 @@ run:
   args:
   - -c
   - |
+    apk add curl
     cd proxy_repo
     state="prep"
     stack="proxy"
